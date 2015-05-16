@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+ table,tr,td{
+     border: 1px solid gray;
+     border-collapse: collapse;
+     padding: 5px;
+ }
+    table tr:nth-child(odd){
+        background-color: #f1f1f1;
+    }
+    table tr:nth-child(even)
+    {
+        background-color: #ffffff;
+    }
+    table td:nth-child(odd)
+    {
+        background-color: #f1f1f1;
+    }
+</style>
+<head lang="en">
+    <script src="bower_components/angular/angular.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-app = "myAppTable" ng-controller="ctrlMyAppTable">
+<table>
+    <tr>
+        <td align="center">Sr.no</td>
+        <td align="center">Course Name</td>
+        <td align="center">Room No</td>
+    </tr>
+    <tr ng-repeat="obj in names | orderBy:'Room':true">
+        <td>{{$index + 1}}</td>
+        <td>
+             {{obj.courseName | uppercase}}
+        </td>
+        <td>
+            {{obj.Room | lowercase}}
+        </td>
+    </tr>
+</table>
+
+<p><br /></p>
+
+<table>
+    8<tr>
+        <td align="center">Sr.no</td>
+        <td align="center">Course Name</td>
+        <td align="center">Room No</td>
+    </tr>
+
+    <tr ng-repeat="obj in names | orderBy:'Room'">
+        <td ng-if="$odd" style="background-color:#f1f1f1"> {{$index + 1}}</td>
+        <td ng-if="$even" style="background-color:#ffffff"> {{$index + 1}}</td  >
+
+        <td ng-if="$odd" style="background-color:#f1f1f1">
+            {{obj.courseName | uppercase}}
+        </td>
+        <td ng-if="$even" style="background-color:#ffffff">
+            {{obj.courseName | uppercase}}
+        </td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">
+            {{obj.Room | lowercase}}
+        </td>
+        <td ng-if="$even" style="background-color:#ffffff">
+            {{obj.Room | lowercase}}
+        </td>
+    </tr>
+
+</table>
+
+<script>
+         angular.module("myAppTable",[]).controller("ctrlMyAppTable",function($scope,$http){
+             $http.get("MyJsonData.txt").success(function(response){
+                         $scope.names = response.courses;
+                     } );
+         });
+
+</script>
+
+</body>
+</html>

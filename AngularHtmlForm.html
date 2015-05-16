@@ -1,0 +1,48 @@
+    <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js"></script>
+</head>
+<body >
+
+<p>
+     <b> Reset Object ! </b>
+     <ol>
+     <li> Object usage </li>
+     <li> Best practice to load angular.js </li>
+     </ol>
+</p>
+
+<div ng-app="formApp" ng-controller="ctrlForm">
+<form name="frmPro" novalidate >
+    <input type="text" ng-model="user.firstName">
+    <input type="text" ng-model="user.lastName" >
+    <button ng-click="reset()">Reset Inputs</button>
+</form>
+<p> User   : {{user}} </p>
+<p> Master : {{master}} </p>
+
+
+<script>
+    angular.module("formApp",[]).controller("ctrlForm",function($scope){
+        $scope.master= {firstName:"Shahzad", lastName:"Ali"};
+
+        $scope.reset = function(){
+            $scope.user = angular.copy($scope.master);
+
+        };
+        $scope.reset();
+    });
+
+
+</script>
+
+</div>
+
+
+
+
+</body>
+</html>

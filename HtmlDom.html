@@ -1,0 +1,47 @@
+<!--
+ Example with DOM manupulation
+ 1-ng-if
+ 2-mg-hide
+ 3-ng-show
+ 4-ng-disabled
+ 5-equal to operator
+ 6-Not equal to operator
+-->
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="bower_components/angular/angular.js"></script>
+</head>
+<body ng-app="">
+
+<p><br />
+   <b>Show/Hide Paragraph by ng-show with equal to operator & <br /> ng-hide with Not equal to operator </b></p>
+
+<p ng-show="mySwitch"> Show on true by ng-show</p>
+<p ng-hide!="mySwitch"> Show on false by ng-hide </p>
+
+<p><br />
+    <b> Show/Hide Paragraph by ng-if </b> </p>
+
+<p ng-if="mySwitch == true"> show when "ng-if" has true, using equalto operator </p>
+<p ng-if="mySwitch != true"> show when "ng-if" has false, using Not equalto operator   </p>
+
+<p><br />
+    <b>  Disbaled/Enabled Button </b> </p>
+<button type="button" ng-disabled="mySwitch">Click Me</button>
+
+<br />
+
+<input type="checkbox"  ng-model="mySwitch">
+
+<br />
+Is Checked :  {{ mySwitch }}
+</body>
+
+
+
+</html>

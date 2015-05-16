@@ -1,0 +1,7 @@
+{
+"courses":[
+{"courseName":"Mobile Development", "Room":"Room1"},
+{"courseName":"Html & CSS", "Room":"Room2"},
+{"courseName":"Practice in lab", "Room":"Room3"}
+];
+}

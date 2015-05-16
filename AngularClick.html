@@ -1,0 +1,53 @@
+<!--
+1-Event Calling Example
+2-Ternary Operator
+3-Function in controller
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js"></script>
+</head>
+<body ng-app="myClickApp" ng-init="counter=0" ng-controller="ctrlClick">
+
+<button ng-click="counter = counter + 1"> Counter : {{counter}}</button>
+<p>
+<br />
+</p>
+
+<p ng-hide ="status">
+<input type="text" ng-model="firstName" />
+<input type="text" ng-model="lastName" />
+
+<br />
+
+My Name : {{ firstName + ' ' + lastName }}
+</p>
+
+<p>
+    <br />
+    <button ng-click="toggle()"> {{btnText}}
+    </button>
+</p>
+
+
+<script>
+
+    angular.module("myClickApp",[]).controller("ctrlClick",function($scope){
+        $scope.firstName = "Shahzad";
+        $scope.lastName = "Ali";
+        $scope.status =  false;
+        $scope.btnText = "Hide";
+        $scope.toggle = function()
+        {
+            $scope.status = ! $scope.status;
+            $scope.counter = 0;
+            $scope.btnText = $scope.status == true ? "Show" : "Hide";
+        };
+    });
+
+</script>
+</body>
+</html>

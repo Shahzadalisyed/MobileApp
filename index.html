@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src= bower_components/angular/angular.js>
+    </script>
+</head>
+<body ng-app="Appjs1" ng-controller="myCtrl"  >
+<input type="text" ng-model="qty" />
+<input type="text" ng-model="price" />
+
+<br />
+<br />
+<b>1-Currency Filter Example : </b>
+<br />
+Custom Currency Symbol (With 2 precision) :  {{qty * price | currency:"Rs;":2}}
+<br />
+Custom Currency Symbol (With 1 precision) :  {{qty * price | currency:"USD$;":1}}
+<br />
+Euro : {{qty * price | currency:"&euro;":0}}
+<br />
+Default Currency Symbol : {{qty * price | currency}}
+<br />
+<br />
+<b>2-Upper/Lower Case  Example : </b>
+<br />
+<ol>
+    <li ng-repeat="x in name">
+{{
+
+        (x.fName + ' ' +  x.lName | uppercase)
+| lowercase
+        }}
+    </li>
+
+</ol>
+
+<ol>
+    <li ng-repeat="x in name">
+        {{
+
+        x.fName + ' ' +  x.lName | uppercase
+
+        }}
+    </li>
+
+</ol>
+
+<br />
+<br />
+<b>3-Order By Ase  Example : </b>
+
+<ol>
+    <li ng-repeat="x in name | orderBy:'lName'"  >
+        {{
+
+        x.fName + ' ' +  x.lName | uppercase
+
+        }}
+    </li>
+
+</ol>
+
+<br />
+<br />
+<b>4-Order By DESC  Example : </b>
+
+<ol>
+    <li ng-repeat="x in name | orderBy:'lName':true"  >
+        {{
+
+        x.fName + ' ' +  x.lName | uppercase
+
+        }}
+    </li>
+
+</ol>
+
+<br />
+<br />
+<b>5-filter  Example : </b>
+<p><input type="text" ng-model="filterData"></p>
+<ol>
+    <li ng-repeat="x in name | filter:filterData"  >
+        {{
+
+        x.fName + ' ' +  x.lName | uppercase
+
+        }}
+    </li>
+
+</ol>
+
+<script>
+
+    angular.module("Appjs1",[]).controller("myCtrl",function($scope){
+        $scope.name = [
+            {fName :'fn1',lName:'Aln1'},
+            {fName :'fn2',lName:'Bln2'},
+            {fName :'fn3',lName:'C  ln3'}
+        ];
+
+    });
+</script>
+
+<!--script src="myController.js"></script-->
+</body>
+</html>
